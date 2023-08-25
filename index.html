@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+  label {
+    margin-top: 20rem;
+  }
+  td {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+  button {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  #rowInput {
+    margin-left: 0.65rem;
+  }
+</style>
+<title>Quadrado</title>
+</head>
+<body>
+  <label for="colInput">Número de colunas:</label>
+  <input type="number" id="colInput">
+  <br>
+  <label for="rowInput">Número de linhas:</label>
+  <input type="number" id="rowInput">
+  <br>
+  <button id="generateBtn">Gerar Matriz</button>
+  <br>
+  <table id="matrix"></table>
+
+  <script>
+    const generateBtn = document.getElementById('generateBtn');
+    generateBtn.addEventListener('click', generateMatrix);
+
+    function generateMatrix() {
+      const colInput = parseInt(document.getElementById('colInput').value);
+      const rowInput = parseInt(document.getElementById('rowInput').value);
+
+      const matrixTable = document.getElementById('matrix');
+      matrixTable.innerHTML = '';
+
+      for (let i = 0; i < rowInput; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < colInput; j++) {
+          const cell = document.createElement('td');
+          cell.textContent = 'x';
+          row.appendChild(cell);
+        }
+        matrixTable.appendChild(row);
+      }
+    }
+  </script>
+</body>
+</html>
